@@ -58,28 +58,27 @@ public class PlayerControll : MonoBehaviour {
 			h = CrossPlatformInputManager.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
 			v = CrossPlatformInputManager.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
 		}
-		rb.useGravity = true;//ジャンプ中に重力を切るので、それ以外は重力の影響を受けるようにする
+		//rb.useGravity = true;//ジャンプ中に重力を切るので、それ以外は重力の影響を受けるようにする
 		
 		// 以下、キャラクターの移動処理
-		//velocity = new Vector3 (0, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
-		velocity = new Vector3 (h, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
+		velocity = new Vector3 (0, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
+		//velocity = new Vector3 (h, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
 		// キャラクターのローカル空間での方向に変換
 		velocity = transform.TransformDirection (velocity);
 		//以下のvの閾値は、Mecanim側のトランジションと一緒に調整する
-		velocity *= forwardSpeed;		// 移動速度を掛ける
-		/*
+		//velocity *= forwardSpeed;		// 移動速度を掛ける
+
 		if (v > 0.1) {
 			velocity *= forwardSpeed;		// 移動速度を掛ける
 		} else if (v < -0.1) {
 			velocity *= backwardSpeed;	// 移動速度を掛ける
 		}
-		*/
 		 
 		// 上下のキー入力でキャラクターを移動させる
 		transform.localPosition += velocity * Time.fixedDeltaTime;
 		
 		// 左右のキー入力でキャラクタをY軸で旋回させる
-		//transform.Rotate (0, h * rotateSpeed, 0);
+		transform.Rotate (0, h * rotateSpeed, 0);
 	}
 
 	void OnCollisionEnter(Collision coll){
