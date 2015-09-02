@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LightPointSwitchWall
   - GoalWall
+  - Wall
   layers:
   - Default
   - TransparentFX

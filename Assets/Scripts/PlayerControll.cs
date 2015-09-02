@@ -27,7 +27,7 @@ public class PlayerControll : MonoBehaviour {
 	private float orgColHight;
 	private Vector3 orgVectColCenter;
 	
-	private GameObject cameraObject;	// メインカメラへの参照
+	//private GameObject cameraObject;	// メインカメラへの参照
 
 	// 初期化
 	void Start ()
@@ -36,7 +36,7 @@ public class PlayerControll : MonoBehaviour {
 		col = GetComponent<BoxCollider> ();
 		rb  = GetComponent<Rigidbody> ();
 		//メインカメラを取得する
-		cameraObject = GameObject.FindWithTag ("MainCamera");
+		//cameraObject = GameObject.FindWithTag ("MainCamera");
 		// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 		//orgColHight = col;
 		orgVectColCenter = col.center;

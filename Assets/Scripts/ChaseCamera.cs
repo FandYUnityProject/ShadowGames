@@ -26,4 +26,5 @@ public class ChaseCamera : MonoBehaviour
 			transform.position = Vector3.Lerp(transform.position, standardPos.position, Time.fixedDeltaTime * smooth);	
 			transform.forward = Vector3.Lerp(transform.forward, standardPos.forward, Time.fixedDeltaTime * smooth);
 	}
+
 }
