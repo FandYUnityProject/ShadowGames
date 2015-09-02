@@ -9,7 +9,7 @@ public class ChaseCamera : MonoBehaviour
 
 	void Start()
 	{
-		standardPos = GameObject.Find ("CamPos").transform;
+		standardPos = GameObject.Find ("cCamPos").transform;
 
 		transform.position = standardPos.position;	
 		transform.forward = standardPos.forward;	

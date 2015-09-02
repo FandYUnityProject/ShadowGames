@@ -4,24 +4,21 @@ using System.Collections;
 public class BoundCamera : MonoBehaviour {
 
 	GameObject player;
-	Transform t;
-	Vector3 pP;
+	public GameObject sCam;
 	Vector3 sPosition;
+	public float smooth = 10;
 
 	void Start(){
-		sPosition = transform.position;
+		player = GameObject.Find ("Player");
 	}
 
 	void Update(){
-		transform.position = Vector3.Lerp (transform.position, sPosition, Time.deltaTime);
+		transform.position = Vector3.Lerp (transform.position, sCam.transform.position, Time.deltaTime);
+		transform.LookAt (player.transform.position);
 	}
 	
-	public void OnTriggerEnter(Collider coll){
-		player = GameObject.Find ("Player");
-		Debug.Log(player.transform.position.x);
-		transform.position = transform.position + transform.up;
-		transform.LookAt (player.transform.position);
-		//Quaternion.LookRotation (new Vector3(10,0,0));
-		//transform.localRotation = transform.localRotation * new Quaternion (10, 0, 0, 0);
+	public void OnTriggerStay(Collider coll){
+		transform.position = Vector3.Lerp (transform.position, sCam.transform.position + sCam.transform.forward - sCam.transform.up, Time.deltaTime*smooth);
+		//transform.position = transform.position + transform.up*Time.deltaTime*smooth;
 	}
 }

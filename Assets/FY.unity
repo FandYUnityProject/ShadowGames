@@ -316,9 +316,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 459807555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.1000004, y: .5, z: -39.2999992}
+  m_LocalPosition: {x: -24.8999996, y: .5, z: -5.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1751166341}
   - {fileID: 1564325470}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1012,7 +1013,7 @@ GameObject:
   - 65: {fileID: 1564325472}
   - 114: {fileID: 1564325471}
   m_Layer: 0
-  m_Name: CamPos
+  m_Name: cCamPos
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1025,11 +1026,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1564325469}
   m_LocalRotation: {x: .258819073, y: 0, z: 0, w: .965925813}
-  m_LocalPosition: {x: 0, y: 1.87, z: -6.47000122}
+  m_LocalPosition: {x: 1, y: 2, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 459807562}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1564325471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,6 +1042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ba4fbb2d8c2444fa288a9ecea82a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sCam: {fileID: 1751166340}
+  smooth: 10
 --- !u!65 &1564325472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1053,6 +1056,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .200000003, y: .200000003, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1751166340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1751166341}
+  m_Layer: 0
+  m_Name: sCamPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1751166341
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1751166340}
+  m_LocalRotation: {x: .258819073, y: 0, z: 0, w: .965925813}
+  m_LocalPosition: {x: 0, y: 2, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459807562}
+  m_RootOrder: 0
 --- !u!1 &1763476995
 GameObject:
   m_ObjectHideFlags: 0
