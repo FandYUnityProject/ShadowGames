@@ -7,10 +7,12 @@ public class BoundCamera : MonoBehaviour {
 	public GameObject sCam;
 	Vector3 sPosition;
 	public float smooth = 10;
-	bool isTouch = false;
+	public bool isTouch = false;
+	Color sPColor;
 
 	void Start(){
 		player = GameObject.Find ("Player");
+		sPColor = player.GetComponent<Renderer> ().material.color;
 	}
 
 	void Update(){
@@ -20,16 +22,16 @@ public class BoundCamera : MonoBehaviour {
 
 	void CameraMove(){
 		if (isTouch) {
+			ClearBody.Clearing(player);
 			transform.position = Vector3.Lerp (transform.position, sCam.transform.position + sCam.transform.forward + sCam.transform.forward - sCam.transform.up, Time.deltaTime * smooth);
 		} else {
+			player.GetComponent<Renderer>().material.color = sPColor;
 			transform.position = Vector3.Lerp (transform.position, sCam.transform.position, Time.deltaTime);
 		}
 	}
 
 	void OnTriggerStay(Collider coll){
 		isTouch = true;
-		//transform.position = Vector3.Lerp (transform.position, sCam.transform.position + sCam.transform.forward + sCam.transform.forward - sCam.transform.up, Time.deltaTime*smooth);
-		//transform.position = transform.position + transform.up*Time.deltaTime*smooth;
 	}
 
 	void OnTriggerExit(Collider coll){
