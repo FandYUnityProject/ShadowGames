@@ -42,8 +42,6 @@ public class PlayerControll : MonoBehaviour {
 		// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 		//orgColHight = col;
 		orgVectColCenter = col.center;
-		anim.SetBool ("IsWalking", false);
-		anim.SetBool ("IsRunning", false);
 	}
 	
 	// 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
@@ -82,7 +80,7 @@ public class PlayerControll : MonoBehaviour {
 		 
 		if(Input.GetButton("Fire1")){
 			v /= 2.0f;
-			velocity /= 2.0f;
+			velocity /= 3.0f;
 		}
 		anim.SetFloat ("Speed",v);
 		// 上下のキー入力でキャラクターを移動させる

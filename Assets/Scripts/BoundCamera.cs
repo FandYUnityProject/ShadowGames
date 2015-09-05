@@ -8,13 +8,13 @@ public class BoundCamera : MonoBehaviour {
 	Vector3 sPosition;
 	public float smooth = 10;
 	public bool isTouch = false;
-	//Color sPColor;
+	Color sPColor;
 	Vector3 target;
 	public float targetY;
 
 	void Start(){
-		player = GameObject.Find ("Player");
-		//sPColor = player.GetComponent<Renderer> ().material.color;
+		player = GameObject.Find ("face");
+		sPColor = player.GetComponent<Renderer> ().material.color;
 
 	}
 
@@ -27,9 +27,9 @@ public class BoundCamera : MonoBehaviour {
 	void CameraMove(){
 		if (isTouch) {
 			//ClearBody.Clearing(player);
-			transform.position = Vector3.Lerp (transform.position, sCam.transform.position + sCam.transform.forward + sCam.transform.forward - sCam.transform.up, Time.deltaTime * smooth);
+			transform.position = Vector3.Lerp (transform.position, sCam.transform.position + sCam.transform.forward - sCam.transform.up, Time.deltaTime * smooth);
 		} else {
-			//player.GetComponent<Renderer>().material.color = sPColor;
+			player.GetComponent<Renderer>().material.color = sPColor;
 			transform.position = Vector3.Lerp (transform.position, sCam.transform.position, Time.deltaTime);
 		}
 	}

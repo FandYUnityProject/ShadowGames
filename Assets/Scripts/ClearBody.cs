@@ -3,9 +3,21 @@ using System.Collections;
 
 public class ClearBody : MonoBehaviour {
 
-	static Color alpha = new Color(1f,1f,1f,0.5f);
+	RaycastHit hit;
+	float distanceToWall = 0;
+	public float rayLength = 3f;
+	Color sColor;
+	Renderer pR;
 
-	public static void Clearing(GameObject p){
-		p.GetComponent<Renderer>().material.color = alpha;
+	void Start(){
+		pR = GetComponent<Renderer>();
+		sColor = pR.material.color;
+	}
+
+	void Update(){
+		if (Physics.Raycast (transform.position, -transform.forward, out hit, rayLength)) {
+			distanceToWall = hit.distance/rayLength;
+			pR.material.color = new Color (1,1,1,distanceToWall) * sColor;
+		}
 	}
 }
