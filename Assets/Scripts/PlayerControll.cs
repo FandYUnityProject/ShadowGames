@@ -26,6 +26,7 @@ public class PlayerControll : MonoBehaviour {
 	// CapsuleColliderで設定されているコライダのHeiht、Centerの初期値を収める変数
 	private float orgColHight;
 	private Vector3 orgVectColCenter;
+	Animator anim;
 	
 	//private GameObject cameraObject;	// メインカメラへの参照
 
@@ -35,11 +36,14 @@ public class PlayerControll : MonoBehaviour {
 		// CapsuleColliderコンポーネントを取得する（カプセル型コリジョン）
 		col = GetComponent<BoxCollider> ();
 		rb  = GetComponent<Rigidbody> ();
+		anim = GetComponent<Animator> ();
 		//メインカメラを取得する
 		//cameraObject = GameObject.FindWithTag ("MainCamera");
 		// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 		//orgColHight = col;
 		orgVectColCenter = col.center;
+		anim.SetBool ("IsWalking", false);
+		anim.SetBool ("IsRunning", false);
 	}
 	
 	// 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
@@ -59,14 +63,16 @@ public class PlayerControll : MonoBehaviour {
 			v = CrossPlatformInputManager.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
 		}
 		//rb.useGravity = true;//ジャンプ中に重力を切るので、それ以外は重力の影響を受けるようにする
-		
+
+
+
 		// 以下、キャラクターの移動処理
 		velocity = new Vector3 (0, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
-		//velocity = new Vector3 (h, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
 		// キャラクターのローカル空間での方向に変換
 		velocity = transform.TransformDirection (velocity);
 		//以下のvの閾値は、Mecanim側のトランジションと一緒に調整する
-		//velocity *= forwardSpeed;		// 移動速度を掛ける
+
+
 
 		if (v > 0.1) {
 			velocity *= forwardSpeed;		// 移動速度を掛ける
@@ -74,6 +80,11 @@ public class PlayerControll : MonoBehaviour {
 			velocity *= backwardSpeed;	// 移動速度を掛ける
 		}
 		 
+		if(Input.GetButton("Fire1")){
+			v /= 2.0f;
+			velocity /= 2.0f;
+		}
+		anim.SetFloat ("Speed",v);
 		// 上下のキー入力でキャラクターを移動させる
 		transform.localPosition += velocity * Time.fixedDeltaTime;
 		
