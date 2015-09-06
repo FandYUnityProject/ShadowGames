@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnitySampleAssets.CrossPlatformInput;
+//using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerControll : MonoBehaviour {
 
@@ -49,20 +49,11 @@ public class PlayerControll : MonoBehaviour {
 	{
 		float h;
 		float v;
+		//h = CrossPlatformInputManager.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
+		//v = CrossPlatformInputManager.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
 
-		if (Input.GetAxis ("Horizontal") > 0.1 
-		    || Input.GetAxis ("Horizontal") < -0.1
-		    || Input.GetAxis ("Vertical") > 0.1 
-		    || Input.GetAxis ("Vertical") < -0.1) {
-			h = Input.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
-			v = Input.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
-		} else {
-			h = CrossPlatformInputManager.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
-			v = CrossPlatformInputManager.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
-		}
+		//Debug.Log (h + "   " + v);
 		//rb.useGravity = true;//ジャンプ中に重力を切るので、それ以外は重力の影響を受けるようにする
-
-
 
 		// 以下、キャラクターの移動処理
 		velocity = new Vector3 (0, 0, v);		// 上下のキー入力からZ軸方向の移動量を取得
@@ -77,11 +68,12 @@ public class PlayerControll : MonoBehaviour {
 		} else if (v < -0.1) {
 			velocity *= backwardSpeed;	// 移動速度を掛ける
 		}
-		 
-		if(Input.GetButton("Fire1")){
+		/*
+		if(CrossPlatformInputManager.GetButton("Fire1")){
 			v /= 2.0f;
 			velocity /= 3.0f;
-		}
+		}*/
+
 		anim.SetFloat ("Speed",v);
 		// 上下のキー入力でキャラクターを移動させる
 		transform.localPosition += velocity * Time.fixedDeltaTime;
