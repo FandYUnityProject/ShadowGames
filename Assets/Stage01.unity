@@ -88,6 +88,7 @@ NavMeshSettings:
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &28722104
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +509,9 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: 9a82f47a9c4d74aa7860e5a8cff4dafa, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &321405628
+=======
+--- !u!1 &526015637
+>>>>>>> parent of 3eb887b... StageSelect微修正
 =======
 --- !u!1 &526015637
 >>>>>>> parent of 3eb887b... StageSelect微修正
