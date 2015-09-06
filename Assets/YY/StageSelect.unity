@@ -21365,7 +21365,6 @@ GameObject:
   - 222: {fileID: 851813198}
   - 114: {fileID: 851813197}
   - 114: {fileID: 851813196}
-  - 114: {fileID: 851813199}
   m_Layer: 5
   m_Name: StageImage
   m_TagString: Untagged
@@ -21431,18 +21430,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 851813197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &851813197
@@ -21472,23 +21460,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851813194}
---- !u!114 &851813199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 851813194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379ef088a1a7b4c1aa6f63550bc26dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageName: Stage30UnLock
-  stageNeedUnlockStar: 2
-  unlockMenu: {fileID: 2097207192}
-  returnUnlockMenu: {fileID: 562697363}
-  unlockText: {fileID: 427585481}
-  returnUnlockText: {fileID: 420208297}
 --- !u!1 &855147841
 GameObject:
   m_ObjectHideFlags: 0
@@ -28182,7 +28153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1771afcf53e9e49418a8289ce7f23d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUseDebug: 1
+  isUseDebug: 0
   isAllCrear: 0
   isAllDelete: 1
 --- !u!4 &1126478169
